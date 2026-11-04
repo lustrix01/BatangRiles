@@ -1,0 +1,2035 @@
+/* ==========================================================================
+   BATANG RILES CHRISTMAS PARTY — EDITORIAL STORYTELLING JOURNEY
+   "Every Light Has a Story"
+   Authentic, Human, Warm Editorial Heritage (No AI Pills, No Floating Boxes)
+   Strictly Non-Scrollable (100% Viewport Height)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. GLOBAL VIEWPORT (Zero Scrollbars)
+   -------------------------------------------------------------------------- */
+html,
+body {
+  height: 100%;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden !important;
+  background-color: #060911;
+  color: #EDE6D8;
+  font-family: var(--font-sans);
+}
+
+#global-particles-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.story-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   2. CLEAN EDITORIAL TOPBAR
+   Navigation: Year 1 • Year 2 • Year 3 | Donate
+   -------------------------------------------------------------------------- */
+.story-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  padding: 0 clamp(1.2rem, 4vw, 3.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  background: linear-gradient(to bottom, rgba(6, 9, 17, 0.96) 0%, rgba(6, 9, 17, 0.6) 80%, transparent 100%);
+  border-bottom: none;
+}
+
+.story-brand-link {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  font-weight: 500;
+  font-style: italic;
+  color: #F6E7B5;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease;
+}
+
+.story-brand-link:hover {
+  color: #FFFFFF;
+}
+
+/* Understated Navigation: Year 1 • Year 2 • Year 3 */
+.story-station-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.2rem, 3vw, 2.5rem);
+}
+
+.station-tab {
+  background: none;
+  border: none;
+  padding: 0.4rem 0;
+  font-family: var(--font-serif-display);
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  font-weight: 500;
+  color: #9C8F7C;
+  cursor: pointer;
+  position: relative;
+  letter-spacing: 0.03em;
+  transition: color 0.25s ease;
+}
+
+.station-tab:hover {
+  color: #EDE6D8;
+}
+
+.station-tab.active {
+  color: #E2C45E;
+}
+
+.station-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: #D4AF37;
+}
+
+/* Tasteful Donate Button */
+.btn-top-donate {
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  color: #F6E7B5;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.45rem 1.3rem;
+  border-radius: 2px;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  transition: all 0.25s ease;
+}
+
+.btn-top-donate:hover {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: #E2C45E;
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   3. STORY CHAPTERS (100% Screen Height, Zero Scroll)
+   -------------------------------------------------------------------------- */
+.story-chapter {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px clamp(0.75rem, 2.5vw, 2.5rem) 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.story-chapter.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   4. INTRO CHAPTER
+   -------------------------------------------------------------------------- */
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 660px;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.intro-parol-wrapper {
+  position: relative;
+  width: clamp(170px, 25vh, 250px);
+  height: clamp(200px, 30vh, 290px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-2);
+}
+
+.intro-header-copy {
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.intro-pretitle {
+  font-family: var(--font-serif-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #E2C45E;
+  margin: 0 0 4px 0;
+}
+
+.intro-main-title {
+  font-family: var(--font-serif-display);
+  font-size: clamp(2.2rem, 5.2vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.12;
+  margin: 0 0 var(--space-3) 0;
+}
+
+.intro-story-lead {
+  font-family: var(--font-sans);
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  color: #EDE6D8;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+.intro-action-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  position: relative;
+  z-index: 25;
+}
+
+.btn-enter-story {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FFF0B8 0%, #E5C158 35%, #D4AF37 70%, #B89327 100%);
+  color: #060A13;
+  border: 1px solid rgba(255, 248, 220, 0.75);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  padding: 0.72rem 2.4rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.5), 0 8px 24px rgba(0, 0, 0, 0.55);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-enter-story:hover {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5D97E 50%, #C79828 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.7), 0 10px 28px rgba(0, 0, 0, 0.65);
+}
+
+.btn-skip-subtle {
+  background: transparent;
+  border: none;
+  color: #9C8F7C;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  cursor: pointer;
+  padding: 0.35rem 0.7rem;
+  transition: color 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.btn-skip-subtle:hover {
+  color: #F6E7B5;
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   5. NOSTALGIC MEMORY ALBUM SPREAD (Open Book / Scrapbook Heritage)
+   Zero Dead Space, Human Touch, Authentic Keepsake Design
+   -------------------------------------------------------------------------- */
+.memory-album-spread {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) 1px minmax(380px, 1.35fr);
+  align-items: stretch;
+  width: 100%;
+  max-width: 1380px;
+  height: 100%;
+  max-height: calc(100dvh - 84px);
+  margin: 0 auto;
+  background: radial-gradient(circle at 50% 30%, rgba(18, 24, 38, 0.96) 0%, rgba(10, 14, 24, 0.98) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.24);
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 235, 180, 0.12), inset 0 0 80px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Central Album Spine Binding */
+.album-spine-divider {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 2%, rgba(212, 175, 55, 0.35) 15%, rgba(212, 175, 55, 0.35) 85%, transparent 98%);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.15);
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   6. LEFT PAGE: THE STORY JOURNAL (Personal, Heartfelt Narrative)
+   Fills the Page Gracefully — Zero Dead Space
+   -------------------------------------------------------------------------- */
+.album-page-narrative {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(0.65rem, 1.5vh, 1.1rem);
+  padding: clamp(1.4rem, 2.8vw, 2.5rem);
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.album-page-narrative > .album-page-nav {
+  margin-top: 0;
+}
+
+.page-station-header {
+  margin-bottom: clamp(0.4rem, 1vh, 0.75rem);
+}
+
+/* Authentic Human Date Stamp / Badge (Replaces generic AI Station stamp) */
+.story-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.24);
+  padding: 4px 13px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.story-date-badge .badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #E2C45E;
+  box-shadow: 0 0 8px rgba(226, 196, 94, 0.85);
+}
+
+.story-date-badge .badge-text {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F6E7B5;
+}
+
+.album-story-title {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.5rem, 2.7vh, 2.15rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #FAF2DA;
+  margin: 0 0 clamp(0.5rem, 1.3vh, 0.85rem) 0;
+}
+
+.album-story-text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.35rem, 0.9vh, 0.65rem);
+  margin-bottom: clamp(0.5rem, 1.2vh, 0.85rem);
+}
+
+.album-story-body {
+  font-family: var(--font-sans);
+  font-size: clamp(0.85rem, 1.45vh, 0.96rem);
+  line-height: 1.6;
+  color: #EDE6D8;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* Narrative Impact Highlights Strip (Fills dead space with meaningful context) */
+.narrative-impact-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: clamp(0.4rem, 1vh, 0.75rem) 0;
+  padding: 8px 12px;
+  background: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 6px;
+}
+
+.impact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.impact-num {
+  font-family: var(--font-serif-display);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #F5D97E;
+}
+
+.impact-lbl {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  color: #A89C8A;
+  letter-spacing: 0.02em;
+}
+
+.album-quote {
+  border-left: 2px solid rgba(212, 175, 55, 0.5);
+  padding-left: 0.9rem;
+  margin: 0 0 clamp(0.5rem, 1.2vh, 0.85rem) 0;
+  font-family: var(--font-serif-display);
+  font-style: italic;
+  font-size: clamp(0.86rem, 1.4vh, 0.98rem);
+  color: #C4B7A4;
+  line-height: 1.45;
+}
+
+.album-quote p {
+  margin: 0;
+}
+
+/* Page Navigation Actions */
+.album-page-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+.btn-album-prev {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #EDE6D8;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.55rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-album-prev:hover {
+  background: rgba(212, 175, 55, 0.12);
+  color: #FFFFFF;
+  border-color: #E2C45E;
+}
+
+.btn-album-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, #F0D577 0%, #D4AF37 55%, #B89327 100%);
+  color: #060911;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.55rem 1.4rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-album-next:hover {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5D97E 55%, #C79828 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   7. RIGHT PAGE: ARCHIVAL KEEPSAKE PHOTO / VIDEO (Tall & Prominent)
+   -------------------------------------------------------------------------- */
+.album-page-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.archival-photo-mount {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  max-height: calc(100% - 64px);
+  display: flex;
+  flex-direction: column;
+  background: rgba(7, 10, 18, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 6px;
+  padding: 10px 10px 8px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  cursor: zoom-in;
+}
+
+/* Washi Tape Archival Corners */
+.photo-tape-corner {
+  position: absolute;
+  width: 36px;
+  height: 13px;
+  background: rgba(246, 231, 181, 0.22);
+  border: 1px solid rgba(246, 231, 181, 0.35);
+  backdrop-filter: blur(2px);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.photo-tape-corner.top-left {
+  top: -4px;
+  left: -5px;
+  transform: rotate(-30deg);
+}
+
+.photo-tape-corner.top-right {
+  top: -4px;
+  right: -5px;
+  transform: rotate(30deg);
+}
+
+.photo-frame-inner {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #000;
+  position: relative;
+}
+
+.photo-frame-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.35s ease, transform 0.4s ease;
+}
+
+.photo-frame-inner video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.archival-photo-mount:hover .photo-frame-inner img {
+  transform: scale(1.02);
+}
+
+.photo-mount-caption {
+  font-family: var(--font-serif-display);
+  font-size: clamp(0.82rem, 1.4vh, 0.92rem);
+  font-style: italic;
+  color: #E2C45E;
+  margin: 6px 0 0 0;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 95%;
+  align-self: center;
+}
+
+/* Photo Navigation Bar Below Frame */
+.album-photo-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 8px;
+  padding: 0 2px;
+  box-sizing: border-box;
+}
+
+.album-counter-text {
+  font-family: var(--font-serif-display);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #C4B7A4;
+}
+
+.album-arrow-btns {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-photo-flip {
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #EDE6D8;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  padding: 0.32rem 0.85rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-photo-flip:hover {
+  background: rgba(212, 175, 55, 0.22);
+  color: #FFFFFF;
+  border-color: #E2C45E;
+}
+
+/* Interactive Photo Thumbnail Dots */
+.album-thumbnail-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.photo-thumb-dot {
+  width: 26px;
+  height: 3.5px;
+  background: rgba(212, 175, 55, 0.25);
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.photo-thumb-dot:hover {
+  background: rgba(212, 175, 55, 0.6);
+}
+
+.photo-thumb-dot.active {
+  background: #E2C45E;
+  height: 4.5px;
+  width: 34px;
+}
+
+/* Video Sound Pill Overlay (discreet corner pill on video slide) */
+.video-sound-pill {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 8;
+  background: rgba(8, 12, 22, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #F6E7B5;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+}
+
+.video-sound-pill:hover {
+  background: rgba(212, 175, 55, 0.22);
+  color: #FFFFFF;
+  border-color: #E2C45E;
+}
+
+/* --------------------------------------------------------------------------
+   8. CHAPTER 4: FINALE / DONATE SPREAD & QUICK GCASH MOUNT
+   -------------------------------------------------------------------------- */
+.finale-spread {
+  grid-template-columns: minmax(320px, 1fr) 1px minmax(320px, 1fr);
+}
+
+.finale-narrative {
+  justify-content: center;
+}
+
+.finale-media {
+  justify-content: center;
+}
+
+.finale-gcash-mount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;
+  background: rgba(8, 12, 22, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  padding: 16px 20px 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+}
+
+.finale-qr-thumb {
+  width: 140px;
+  height: 140px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  cursor: zoom-in;
+  margin: 10px 0;
+  background: #007dfe;
+}
+
+.finale-qr-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.finale-qr-thumb:hover .finale-qr-img {
+  transform: scale(1.05);
+}
+
+.finale-gcash-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 2px;
+}
+
+.finale-btn-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+
+/* --------------------------------------------------------------------------
+   9. DONATION MODAL POPUP
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  background: rgba(4, 7, 14, 0.90);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Dialog — compact, NEVER scrolls */
+.modal-dialog {
+  background: #0A0F1E;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 4px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  padding: 20px 20px 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  color: #9C8F7C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.modal-close-btn:hover {
+  background: rgba(212, 175, 55, 0.15);
+  color: #FFFFFF;
+}
+
+/* Compact header — no intro text */
+.modal-header {
+  text-align: center;
+  margin-bottom: 14px;
+  padding-right: 24px;
+}
+
+.modal-subtitle {
+  font-family: var(--font-serif-display);
+  font-size: 0.82rem;
+  font-style: italic;
+  color: #E2C45E;
+  margin: 0 0 2px 0;
+}
+
+.modal-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #FAF2DA;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.modal-intro-text {
+  display: none;
+  /* Removed to keep modal compact and non-scrolling */
+}
+
+/* ── Horizontal GCash Row: QR + Info side-by-side ── */
+.gcash-modal-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+/* QR image — fixed square */
+.gcash-qr-frame {
+  flex-shrink: 0;
+  width: 130px;
+  height: 130px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: zoom-in;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  background: #007dfe;
+}
+
+.gcash-qr-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gcash-qr-frame:hover .gcash-qr-img {
+  transform: scale(1.04);
+}
+
+/* Info column */
+.gcash-modal-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.gcash-detail-line {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.gcash-acc-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  color: #7A6F62;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.gcash-acc-name {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #FAF2DA;
+}
+
+.gcash-acc-number {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #E2C45E;
+  letter-spacing: 0.04em;
+}
+
+.method-tag.gcash {
+  display: inline-block;
+  background: rgba(0, 125, 254, 0.18);
+  color: #5bb0ff;
+  border: 1px solid rgba(0, 125, 254, 0.4);
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  margin-bottom: 2px;
+  width: fit-content;
+}
+
+/* Buttons */
+.btn-copy-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #F0D577 0%, #D4AF37 55%, #B89327 100%);
+  border: none;
+  color: #060911;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.52rem 0.9rem;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.22s ease;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.btn-copy-number:hover {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5D97E 55%, #C79828 100%);
+  transform: translateY(-1px);
+}
+
+.btn-copy-number.copied {
+  background: #2ecc71 !important;
+  color: #060911 !important;
+}
+
+.btn-save-qr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #C4B7A4;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.42rem 0.9rem;
+  border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.btn-save-qr:hover {
+  background: rgba(212, 175, 55, 0.14);
+  color: #FFFFFF;
+  border-color: #E2C45E;
+}
+
+/* Backward compat: old classes used in finale page */
+.gcash-modal-content {
+  display: contents;
+}
+
+.gcash-card-showcase,
+.gcash-badge-row,
+.gcash-details-group,
+.gcash-modal-buttons {
+  display: contents;
+}
+
+.modal-footer-note {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: #7A6F62;
+  text-align: center;
+  line-height: 1.4;
+  margin: 0;
+  border-top: 1px solid rgba(212, 175, 55, 0.08);
+  padding-top: 10px;
+}
+
+/* Donation details: clear alignment and an uncropped QR */
+.modal-dialog {
+  max-width: 580px;
+  padding: 26px;
+  border-color: rgba(237, 230, 216, 0.16);
+  border-radius: 6px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
+}
+
+.modal-header {
+  margin-bottom: 20px;
+}
+
+.gcash-modal-row {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+.gcash-qr-frame {
+  width: 250px;
+  height: 250px;
+  padding: 7px;
+  border: 1px solid rgba(237, 230, 216, 0.28);
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.gcash-qr-img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.gcash-modal-info {
+  gap: 10px;
+}
+
+.gcash-acc-number {
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.btn-copy-number,
+.btn-save-qr {
+  border-radius: 4px;
+}
+
+.modal-footer-note {
+  border-top-color: rgba(237, 230, 216, 0.12);
+}
+
+@media (max-width: 860px) {
+  .modal-dialog {
+    max-width: 500px;
+    padding: 22px;
+  }
+
+  .gcash-modal-row {
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .gcash-qr-frame {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 420px) {
+  .modal-dialog {
+    padding: 20px 16px 16px;
+  }
+
+  .gcash-modal-row {
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .gcash-qr-frame {
+    width: 112px;
+    height: 112px;
+    padding: 4px;
+  }
+
+  .gcash-acc-number {
+    font-size: 0.9rem;
+  }
+}
+
+/* Final mobile overrides: keep the header clear and allow every chapter to scroll. */
+@media (max-width: 860px) {
+  .story-topbar {
+    height: auto;
+    min-height: 82px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    align-content: center;
+    column-gap: 10px;
+    row-gap: 6px;
+    padding: max(8px, env(safe-area-inset-top)) 16px 8px;
+  }
+
+  .story-brand-link {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    max-width: none;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: nowrap;
+    font-size: clamp(0.82rem, 2.5vw, 1.08rem);
+    letter-spacing: 0;
+  }
+
+  .btn-top-donate {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 36px;
+    padding: 0.35rem 0.8rem;
+  }
+
+  .story-station-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 4px;
+  }
+
+  .station-tab {
+    min-height: 32px;
+    padding: 0.25rem 0.1rem;
+    text-align: center;
+    font-size: 0.88rem;
+  }
+
+  .story-chapter {
+    display: block;
+    height: 100dvh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: calc(124px + env(safe-area-inset-top, 0px)) max(14px, env(safe-area-inset-right, 14px)) calc(28px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 14px));
+    scroll-padding-top: 124px;
+  }
+
+  .memory-album-spread {
+    display: flex;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    padding: 0;
+    gap: 18px;
+    overflow: visible;
+  }
+
+  .album-page-narrative {
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    padding: 4px 0 0;
+    overflow: visible;
+  }
+
+  .album-page-media {
+    flex: 0 0 auto;
+    height: auto;
+    min-height: 0;
+    padding: 0 0 12px;
+    overflow: visible;
+  }
+
+  .archival-photo-mount {
+    flex: 0 0 auto;
+    height: clamp(240px, 48svh, 460px);
+    max-height: none;
+  }
+
+  #chapter-intro .intro-container {
+    padding-top: clamp(14px, 3vh, 28px);
+  }
+
+  .page-station-header {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-brand-link {
+    font-size: clamp(0.78rem, 3.4vw, 0.95rem);
+  }
+
+  .story-chapter {
+    padding-top: calc(124px + env(safe-area-inset-top, 0px));
+    padding-right: max(12px, env(safe-area-inset-right, 12px));
+    padding-left: max(12px, env(safe-area-inset-left, 12px));
+  }
+}
+
+/* Small-screen layout: readable navigation, full text, and contained controls. */
+@media (max-width: 600px) {
+  .story-topbar {
+    height: auto;
+    min-height: 82px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    align-content: center;
+    column-gap: 10px;
+    row-gap: 6px;
+    padding: max(8px, env(safe-area-inset-top)) 14px 8px;
+  }
+
+  .story-brand-link {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: none;
+    font-size: clamp(0.9rem, 4vw, 1.05rem);
+  }
+
+  .btn-top-donate {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 36px;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .story-station-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .station-tab {
+    min-height: 32px;
+    padding: 0.25rem 0.1rem;
+    font-size: 0.88rem;
+    text-align: center;
+  }
+
+  .story-chapter {
+    padding: calc(94px + env(safe-area-inset-top, 0px)) max(14px, env(safe-area-inset-right, 14px)) calc(24px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 14px));
+    scroll-padding-top: 94px;
+  }
+
+  .memory-album-spread {
+    min-height: 0;
+    gap: 18px;
+  }
+
+  .album-page-narrative {
+    gap: 10px;
+    padding-top: 4px;
+  }
+
+  .album-story-title {
+    font-size: clamp(1.35rem, 5.5vw, 1.75rem);
+    line-height: 1.2;
+  }
+
+  .album-story-body {
+    font-size: clamp(0.96rem, 3.8vw, 1.04rem);
+    line-height: 1.6;
+  }
+
+  .album-page-nav {
+    gap: 8px;
+  }
+
+  .btn-album-prev,
+  .btn-album-next {
+    min-height: 44px;
+    padding: 0.55rem 0.9rem;
+  }
+
+  .archival-photo-mount {
+    height: clamp(240px, 48svh, 460px);
+  }
+
+  .album-photo-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+  }
+
+  .btn-photo-flip {
+    min-height: 40px;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .album-thumbnail-dots {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    gap: 4px;
+    overflow-x: auto;
+    padding: 6px 2px 10px;
+    scrollbar-width: thin;
+  }
+
+  .photo-thumb-dot {
+    flex: 0 0 15px;
+    width: 15px;
+    min-width: 15px;
+    min-height: 8px;
+    padding: 2px 0;
+  }
+
+  .photo-thumb-dot.active {
+    flex-basis: 22px;
+    width: 22px;
+    min-width: 22px;
+    height: 6px;
+  }
+
+  .finale-gcash-mount {
+    width: min(100%, 320px);
+  }
+}
+
+@media (max-width: 360px) {
+  .story-chapter {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .album-story-body {
+    font-size: 0.94rem;
+  }
+
+  .btn-album-prev,
+  .btn-album-next {
+    font-size: 0.72rem;
+    padding-right: 0.65rem;
+    padding-left: 0.65rem;
+  }
+
+  .gcash-modal-row {
+    grid-template-columns: 124px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .gcash-qr-frame {
+    width: 124px;
+    height: 124px;
+  }
+}
+
+@media (max-width: 860px) {
+  .story-topbar {
+    height: auto;
+    min-height: 82px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    align-content: center;
+    column-gap: 10px;
+    row-gap: 6px;
+    padding: max(8px, env(safe-area-inset-top)) 16px 8px;
+  }
+
+  .story-brand-link {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    max-width: none;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: nowrap;
+    font-size: clamp(0.82rem, 2.5vw, 1.08rem);
+    letter-spacing: 0;
+  }
+
+  .btn-top-donate {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 36px;
+    padding: 0.35rem 0.8rem;
+  }
+
+  .story-station-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 4px;
+  }
+
+  .station-tab {
+    min-height: 32px;
+    padding: 0.25rem 0.1rem;
+    text-align: center;
+    font-size: 0.88rem;
+  }
+
+  .story-chapter {
+    padding-top: calc(112px + env(safe-area-inset-top, 0px));
+    scroll-padding-top: 112px;
+  }
+
+  #chapter-intro .intro-container {
+    padding-top: 10px;
+  }
+
+  .page-station-header {
+    margin-bottom: 8px;
+  }
+}
+
+
+
+/* --------------------------------------------------------------------------
+   10. MOBILE ADAPTATIONS (Strictly Fits in Screen, Zero Scrolling)
+   Full Memory Album responsive experience for Phones and Tablets
+   -------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+  /* Compact Topbar */
+  .story-topbar {
+    height: 52px;
+    padding: 0 1rem;
+  }
+
+  .story-brand-link {
+    font-size: 0.98rem;
+  }
+
+  .story-station-nav {
+    gap: 0.9rem;
+  }
+
+  .station-tab {
+    font-size: 0.86rem;
+    padding: 0.2rem 0;
+  }
+
+  .btn-top-donate {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.85rem;
+  }
+
+  /* Chapter container fills strictly 100dvh */
+  .story-chapter {
+    padding: 56px 8px 8px;
+  }
+
+  /* Vertical Memory Album Flow */
+  .memory-album-spread {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    height: calc(100dvh - 66px);
+    max-height: none;
+    padding: 8px 10px;
+    gap: 6px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .album-spine-divider {
+    display: none;
+  }
+
+  /* Narrative section: compact, non-scroll, legible */
+  .album-page-narrative {
+    padding: 2px 4px 4px;
+    flex: 0 0 auto;
+    justify-content: flex-start;
+  }
+
+  .page-station-header {
+    margin-bottom: 2px;
+  }
+
+  .story-date-badge {
+    padding: 2px 9px;
+    gap: 5px;
+  }
+
+  .story-date-badge .badge-dot {
+    width: 4px;
+    height: 4px;
+  }
+
+  .story-date-badge .badge-text {
+    font-size: 0.65rem;
+  }
+
+  .station-ticket-label {
+    font-size: 0.72rem;
+  }
+
+  .album-story-title {
+    font-size: clamp(1.1rem, 3.6vw, 1.3rem);
+    line-height: 1.18;
+    margin: 0 0 3px 0;
+  }
+
+  .album-story-text {
+    gap: 0;
+    margin-bottom: 2px;
+  }
+
+  .album-story-body {
+    font-size: clamp(0.74rem, 2.3vw, 0.82rem);
+    line-height: 1.35;
+    margin: 0 0 3px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Second paragraph, impact row and quote hidden on compact mobile to maximize photo size */
+  .album-story-text .album-story-body:nth-child(n+2),
+  .narrative-impact-row,
+  .album-quote {
+    display: none;
+  }
+
+  .album-page-nav {
+    margin-top: 2px;
+    padding-top: 2px;
+    gap: 8px;
+  }
+
+  .btn-album-prev,
+  .btn-album-next {
+    font-size: 0.75rem;
+    padding: 0.38rem 0.85rem;
+    border-radius: 3px;
+  }
+
+  /* Media section: takes the remaining height so photo dominates */
+  .album-page-media {
+    padding: 0;
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .archival-photo-mount {
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+    padding: 6px 6px 4px;
+  }
+
+  .photo-tape-corner {
+    display: none;
+  }
+
+  .photo-mount-caption {
+    font-size: 0.72rem;
+    margin: 3px 0 0;
+  }
+
+  .album-photo-controls {
+    margin-top: 3px;
+    padding: 0;
+  }
+
+  .album-counter-text {
+    font-size: 0.75rem;
+  }
+
+  .btn-photo-flip {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.65rem;
+  }
+
+  .album-thumbnail-dots {
+    display: none;
+  }
+
+  /* Finale Spread on Mobile */
+  .finale-spread {
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .finale-narrative {
+    flex: 0 0 auto;
+    text-align: center;
+    align-items: center;
+  }
+
+  .finale-narrative .album-page-nav {
+    justify-content: center;
+  }
+
+  .finale-media {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 2px 0 0;
+  }
+
+  .finale-gcash-mount {
+    max-width: 290px;
+    padding: 8px 14px;
+    margin: auto;
+  }
+
+  .finale-qr-thumb {
+    width: 110px;
+    height: 110px;
+    margin: 4px 0;
+  }
+
+  .finale-gcash-text {
+    margin-bottom: 6px;
+  }
+
+  .finale-gcash-text .gcash-acc-number {
+    font-size: 0.95rem;
+  }
+
+  .finale-btn-row {
+    gap: 5px;
+  }
+
+  .finale-btn-row .btn-copy-number,
+  .finale-btn-row .btn-save-qr {
+    padding: 0.38rem 0.7rem;
+    font-size: 0.75rem;
+  }
+
+  /* Donation Modal on Mobile: stays horizontal, non-scrollable */
+  .modal-dialog {
+    max-width: 340px;
+    padding: 14px 14px 10px;
+  }
+
+  .gcash-modal-row {
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .gcash-qr-frame {
+    width: 115px;
+    height: 115px;
+  }
+
+  .gcash-acc-name {
+    font-size: 0.82rem;
+  }
+
+  .gcash-acc-number {
+    font-size: 0.98rem;
+  }
+
+  .btn-copy-number {
+    font-size: 0.75rem;
+    padding: 0.44rem 0.7rem;
+  }
+
+  .btn-save-qr {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .modal-footer-note {
+    font-size: 0.68rem;
+    padding-top: 6px;
+  }
+}
+
+/* Very Small Mobile Screens (≤ 380px, e.g. iPhone SE) */
+@media (max-width: 380px) {
+  .story-topbar {
+    height: 48px;
+    padding: 0 0.6rem;
+  }
+
+  .story-brand-link {
+    font-size: 0.88rem;
+  }
+
+  .story-station-nav {
+    gap: 0.6rem;
+  }
+
+  .station-tab {
+    font-size: 0.8rem;
+  }
+
+  .story-chapter {
+    padding: 50px 6px 6px;
+  }
+
+  .memory-album-spread {
+    height: calc(100dvh - 58px);
+    padding: 6px 8px;
+    gap: 4px;
+  }
+
+  .album-story-title {
+    font-size: 1.05rem;
+  }
+
+  .album-story-body {
+    font-size: 0.72rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .gcash-qr-frame {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. QUIETER, RESPONSIVE STORY PRESENTATION
+   -------------------------------------------------------------------------- */
+.memory-album-spread {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.album-spine-divider {
+  background: rgba(237, 230, 216, 0.16);
+  box-shadow: none;
+}
+
+.story-date-badge {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+.story-date-badge .badge-dot {
+  box-shadow: none;
+}
+
+.narrative-impact-row {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  border-top: 1px solid rgba(237, 230, 216, 0.18);
+  border-bottom: 1px solid rgba(237, 230, 216, 0.18);
+  padding: 10px 0;
+}
+
+.archival-photo-mount {
+  background: #050505;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.28);
+  padding: 9px 9px 7px;
+}
+
+.photo-frame-inner,
+.photo-frame-inner img,
+.photo-frame-inner video {
+  border-radius: 0;
+}
+
+.photo-frame-inner {
+  border: 1px solid rgba(35, 29, 19, 0.22);
+}
+
+.photo-frame-inner img {
+  object-fit: cover;
+}
+
+.photo-tape-corner {
+  display: block;
+  width: 42px;
+  height: 16px;
+  background: rgba(231, 204, 139, 0.78);
+  border: 1px solid rgba(150, 119, 61, 0.28);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(1px);
+}
+
+.photo-mount-caption {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.btn-album-prev {
+  border-color: rgba(237, 230, 216, 0.32);
+  border-radius: 2px;
+}
+
+.btn-album-next {
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+@media (max-width: 860px) {
+  .story-topbar {
+    gap: 0.5rem;
+    background: rgba(6, 9, 17, 0.96);
+  }
+
+  .story-brand-link {
+    max-width: 34vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .story-station-nav {
+    gap: clamp(0.45rem, 2vw, 0.9rem);
+  }
+
+  .station-tab {
+    white-space: nowrap;
+  }
+
+  .story-chapter {
+    display: block;
+    height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 64px 16px 24px;
+  }
+
+  .memory-album-spread {
+    display: flex;
+    height: auto;
+    min-height: calc(100dvh - 88px);
+    max-height: none;
+    padding: 0;
+    gap: 18px;
+    overflow: visible;
+  }
+
+  .album-page-narrative {
+    padding: 8px 0 0;
+    overflow: visible;
+  }
+
+  .story-date-badge .badge-text {
+    font-size: 0.72rem;
+  }
+
+  .album-story-title {
+    font-size: clamp(1.35rem, 5vw, 1.8rem);
+    margin: 8px 0 10px;
+  }
+
+  .album-story-text {
+    gap: 0.65rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .album-story-body {
+    display: block;
+    overflow: visible;
+    font-size: clamp(0.92rem, 3.4vw, 1.02rem);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .album-story-text .album-story-body:nth-child(n+2),
+  .album-quote {
+    display: flex;
+  }
+
+  .narrative-impact-row {
+    display: grid;
+  }
+
+  .album-quote {
+    margin: 8px 0;
+  }
+
+  .album-page-nav {
+    flex-wrap: wrap;
+    margin: 8px 0 0;
+    padding: 0;
+  }
+
+  .album-page-media {
+    flex: 0 0 auto;
+    height: auto;
+    min-height: 0;
+    padding: 0 0 12px;
+    overflow: visible;
+  }
+
+  .archival-photo-mount {
+    flex: 0 0 auto;
+    height: clamp(260px, 52vh, 520px);
+    max-height: none;
+    padding: 8px 8px 6px;
+  }
+
+  .photo-frame-inner {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .photo-mount-caption {
+    max-width: 100%;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 4px 0;
+  }
+
+  .album-photo-controls {
+    margin-top: 10px;
+  }
+
+  .album-thumbnail-dots {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-topbar {
+    padding: 0 10px;
+  }
+
+  .story-brand-link {
+    font-size: 0.82rem;
+    max-width: 29vw;
+  }
+
+  .station-tab {
+    font-size: 0.76rem;
+  }
+
+  .btn-top-donate {
+    padding: 0.32rem 0.55rem;
+    font-size: 0.7rem;
+  }
+
+  .story-chapter {
+    padding: 60px 14px 20px;
+  }
+
+  .memory-album-spread {
+    min-height: calc(100dvh - 80px);
+    gap: 14px;
+  }
+
+  .archival-photo-mount {
+    height: clamp(230px, 45vh, 420px);
+    padding: 7px 7px 5px;
+  }
+
+  .narrative-impact-row {
+    gap: 10px;
+  }
+
+  .impact-lbl {
+    line-height: 1.35;
+  }
+}
+
+/* Keep the donation layout overrides after the general mobile rules. */
+@media (max-width: 860px) {
+  .modal-dialog {
+    max-width: 500px;
+    padding: 22px;
+  }
+
+  .gcash-modal-row {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+  }
+
+  .gcash-qr-frame {
+    width: 200px;
+    height: 200px;
+    padding: 7px;
+    background: #fff;
+  }
+
+  .gcash-qr-img {
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .modal-dialog {
+    padding: 20px 16px 16px;
+  }
+
+  .gcash-modal-row {
+    grid-template-columns: 140px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .gcash-qr-frame {
+    width: 140px;
+    height: 140px;
+    padding: 4px;
+  }
+
+  .gcash-acc-number {
+    font-size: 0.9rem;
+  }
+}

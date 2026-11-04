@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Every Light Has a Story &mdash; Batang Riles Christmas Party</title>
+  
+  <!-- Global Design System & Story Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/intro.css">
+  <link rel="stylesheet" href="styles/story-journey.css">
+</head>
+<body>
+
+  <!-- Subtle Film Grain & Vignette Overlays -->
+  <div class="film-grain-overlay" aria-hidden="true"></div>
+  <div class="cinematic-vignette" aria-hidden="true"></div>
+
+  <!-- GLOBAL Golden Particles — Visible on ALL pages (fixed layer, z-index above bg) -->
+  <canvas id="global-particles-canvas" aria-hidden="true" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;"></canvas>
+
+  <!-- Background Music Player: APO Hiking Society - Himig Ng Pasko (Continuous, Zero UI Clutter) -->
+  <video id="bg-music-player" autoplay playsinline loop preload="auto" style="position:fixed;width:1px;height:1px;opacity:0.001;pointer-events:none;z-index:-1000;" aria-hidden="true">
+    <source src="assets/APO%20Hiking%20Society%20-%20Himig%20Ng%20Pasko%20(Official%20Lyric%20Video).mp4" type="video/mp4">
+  </video>
+
+  <!-- ========================================================================
+       EDITORIAL TOPBAR (Year 1 • Year 2 • Year 3 | Donate)
+       ======================================================================== -->
+  <header class="story-topbar">
+    <!-- Brand Title Link -->
+    <button type="button" class="story-brand-link" data-goto-chapter="0" aria-label="Return to Intro">
+      Batang Riles Christmas Party
+    </button>
+
+    <!-- Understated Navigation: Year 1 • Year 2 • Year 3 -->
+    <nav class="story-station-nav" aria-label="Journey Stations">
+      <button type="button" class="station-tab" data-chapter-index="1">Year 1</button>
+      <button type="button" class="station-tab" data-chapter-index="2">Year 2</button>
+      <button type="button" class="station-tab" data-chapter-index="3">Year 3</button>
+    </nav>
+
+    <!-- Tasteful Donate Button -->
+    <button type="button" class="btn-top-donate" data-open-donate aria-label="Open donation details">
+      Donate
+    </button>
+  </header>
+
+  <!-- ========================================================================
+       NON-SCROLLABLE STORY STAGE (Strictly 100vh / 100dvh)
+       ======================================================================== -->
+  <main class="story-wrapper" id="story-viewport">
+
+    <!-- ----------------------------------------------------------------------
+         CHAPTER 0: INTRO (The Parol on the Tracks)
+         ---------------------------------------------------------------------- -->
+    <section id="chapter-intro" class="story-chapter active" aria-label="Chapter 0: Introduction">
+      
+      <!-- Perspective Railroad Tracks in Background (Authentic Batang Riles Scene) -->
+      <div class="intro-riles-backdrop" aria-hidden="true">
+        <svg class="intro-riles-svg" viewBox="0 0 1200 320" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Ballast & Ground Gradients -->
+          <linearGradient id="ballastBed" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#080D1A" stop-opacity="0.1" />
+            <stop offset="40%" stop-color="#141F36" stop-opacity="0.5" />
+            <stop offset="100%" stop-color="#0B111E" stop-opacity="0.9" />
+          </linearGradient>
+
+          <!-- Steel Rail Gradients with Specular Highlight -->
+          <linearGradient id="railHeadLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.25" />
+            <stop offset="50%" stop-color="#E2C45E" stop-opacity="0.75" />
+            <stop offset="100%" stop-color="#FFF3D1" stop-opacity="0.95" />
+          </linearGradient>
+
+          <linearGradient id="railHeadRight" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.25" />
+            <stop offset="50%" stop-color="#E2C45E" stop-opacity="0.75" />
+            <stop offset="100%" stop-color="#FFF3D1" stop-opacity="0.95" />
+          </linearGradient>
+
+          <linearGradient id="sleeperWood" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#1A120B" stop-opacity="0.4" />
+            <stop offset="25%" stop-color="#3D2E1E" stop-opacity="0.8" />
+            <stop offset="75%" stop-color="#4A3B2A" stop-opacity="0.85" />
+            <stop offset="100%" stop-color="#1A120B" stop-opacity="0.4" />
+          </linearGradient>
+
+          <!-- Parol Light Cast onto the Rails -->
+          <linearGradient id="parolTrackLight" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.55" />
+            <stop offset="45%" stop-color="#E67E22" stop-opacity="0.22" />
+            <stop offset="100%" stop-color="#040810" stop-opacity="0" />
+          </linearGradient>
+
+          <!-- Festoon Glow Filter -->
+          <filter id="festoonGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3.5" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+        </defs>
+
+        <!-- 1. Ballast Stone Bed (Gravel along the tracks) -->
+        <polygon points="120,320 1080,320 625,12 575,12" fill="url(#ballastBed)" />
+
+        <!-- Parol Candlelight Wash Beam over the Tracks -->
+        <polygon points="600,8 240,320 960,320" fill="url(#parolTrackLight)" class="riles-track-glow" />
+
+        <!-- 2. Community Silhouettes Flanking the Tracks (Modest Homes along the Riles) -->
+        <!-- Left Side Homes & Rooftops -->
+        <polygon points="0,320 0,165 95,150 150,185 240,215 320,240 320,320" fill="#050913" opacity="0.8" />
+        <line x1="0" y1="165" x2="95" y2="150" stroke="rgba(212, 175, 55, 0.15)" stroke-width="1" />
+        <line x1="95" y1="150" x2="150" y2="185" stroke="rgba(212, 175, 55, 0.12)" stroke-width="1" />
+        <!-- Warm Window Glows in Left Homes -->
+        <rect x="55" y="195" width="14" height="10" rx="1" fill="#FFB84D" filter="url(#festoonGlow)" opacity="0.85" />
+        <rect x="110" y="215" width="12" height="9" rx="1" fill="#E67E22" filter="url(#festoonGlow)" opacity="0.75" />
+
+        <!-- Right Side Homes & Rooftops -->
+        <polygon points="1200,320 1200,160 1105,145 1040,180 950,215 880,240 880,320" fill="#050913" opacity="0.8" />
+        <line x1="1200" y1="160" x2="1105" y2="145" stroke="rgba(212, 175, 55, 0.15)" stroke-width="1" />
+        <line x1="1105" y1="145" x2="1040" y2="180" stroke="rgba(212, 175, 55, 0.12)" stroke-width="1" />
+        <!-- Warm Window Glows in Right Homes -->
+        <rect x="1125" y="190" width="14" height="10" rx="1" fill="#FFB84D" filter="url(#festoonGlow)" opacity="0.85" />
+        <rect x="1065" y="210" width="12" height="9" rx="1" fill="#E67E22" filter="url(#festoonGlow)" opacity="0.75" />
+
+        <!-- 3. Wooden Sleepers (Traviesa - 13 Perspective Cross-Ties with Tie-Plates) -->
+        <!-- Horizon Ties -->
+        <rect x="572" y="16" width="56" height="3" rx="0.5" fill="url(#sleeperWood)" />
+        <rect x="560" y="28" width="80" height="3.5" rx="0.5" fill="url(#sleeperWood)" />
+        <rect x="544" y="44" width="112" height="4" rx="0.5" fill="url(#sleeperWood)" />
+        <rect x="522" y="64" width="156" height="4.5" rx="0.5" fill="url(#sleeperWood)" />
+        <rect x="494" y="88" width="212" height="5.5" rx="1" fill="url(#sleeperWood)" />
+        <rect x="458" y="116" width="284" height="6.5" rx="1" fill="url(#sleeperWood)" />
+        <rect x="412" y="148" width="376" height="7.5" rx="1" fill="url(#sleeperWood)" />
+        <rect x="354" y="184" width="492" height="9" rx="1.5" fill="url(#sleeperWood)" />
+        <rect x="282" y="224" width="636" height="11" rx="1.5" fill="url(#sleeperWood)" />
+        <rect x="194" y="268" width="812" height="13.5" rx="2" fill="url(#sleeperWood)" />
+        <rect x="85" y="314" width="1030" height="16" rx="2" fill="url(#sleeperWood)" />
+
+        <!-- Tie Plates (Chapa de Riles on Forefront Sleepers) -->
+        <!-- Sleeper 224 -->
+        <rect x="408" y="224" width="18" height="11" fill="#0A0E18" stroke="rgba(212,175,55,0.4)" stroke-width="0.75" />
+        <rect x="774" y="224" width="18" height="11" fill="#0A0E18" stroke="rgba(212,175,55,0.4)" stroke-width="0.75" />
+        <!-- Sleeper 268 -->
+        <rect x="354" y="268" width="22" height="13.5" fill="#0A0E18" stroke="rgba(212,175,55,0.5)" stroke-width="0.8" />
+        <rect x="824" y="268" width="22" height="13.5" fill="#0A0E18" stroke="rgba(212,175,55,0.5)" stroke-width="0.8" />
+        <!-- Sleeper 314 -->
+        <rect x="290" y="314" width="28" height="16" fill="#0A0E18" stroke="rgba(212,175,55,0.6)" stroke-width="1" />
+        <rect x="882" y="314" width="28" height="16" fill="#0A0E18" stroke="rgba(212,175,55,0.6)" stroke-width="1" />
+
+        <!-- 4. Dual Steel Rails (Riles ng Tren) -->
+        <!-- Left Steel Rail -->
+        <line x1="586" y1="12" x2="298" y2="320" stroke="#060A13" stroke-width="7" />
+        <line x1="587" y1="12" x2="303" y2="320" stroke="url(#railHeadLeft)" stroke-width="3.5" />
+        <line x1="588" y1="12" x2="306" y2="320" stroke="#FFF8DC" stroke-width="1.2" opacity="0.9" />
+
+        <!-- Right Steel Rail -->
+        <line x1="614" y1="12" x2="902" y2="320" stroke="#060A13" stroke-width="7" />
+        <line x1="613" y1="12" x2="897" y2="320" stroke="url(#railHeadRight)" stroke-width="3.5" />
+        <line x1="612" y1="12" x2="894" y2="320" stroke="#FFF8DC" stroke-width="1.2" opacity="0.9" />
+
+        <!-- 5. Railway Utility Poles with Festive String Lights (Pailaw sa Riles) -->
+        <!-- Left Utility Poles -->
+        <!-- Near Left Pole -->
+        <line x1="160" y1="120" x2="160" y2="320" stroke="#2B1D12" stroke-width="4.5" />
+        <line x1="135" y1="135" x2="185" y2="135" stroke="#3D2B1C" stroke-width="2.5" />
+        <!-- Mid Left Pole -->
+        <line x1="335" y1="85" x2="335" y2="240" stroke="#2B1D12" stroke-width="3" />
+        <line x1="318" y1="95" x2="352" y2="95" stroke="#3D2B1C" stroke-width="1.8" />
+        <!-- Far Left Pole -->
+        <line x1="475" y1="45" x2="475" y2="120" stroke="#2B1D12" stroke-width="1.8" />
+
+        <!-- Left Sagging Festoon Wires & Glowing Bulbs -->
+        <path d="M160 135 Q 248 160 335 95" stroke="rgba(212,175,55,0.4)" stroke-width="1" fill="none" />
+        <path d="M335 95 Q 405 98 475 45" stroke="rgba(212,175,55,0.3)" stroke-width="0.8" fill="none" />
+        <!-- Left Glowing Warm Festoon Bulbs -->
+        <circle class="festoon-light" cx="195" cy="147" r="3" fill="#FFF3D1" filter="url(#festoonGlow)" />
+        <circle class="festoon-light" cx="240" cy="154" r="3.2" fill="#FFB84D" filter="url(#festoonGlow)" />
+        <circle class="festoon-light" cx="288" cy="140" r="2.8" fill="#FFF3D1" filter="url(#festoonGlow)" />
+        <circle class="festoon-light" cx="370" cy="98" r="2.2" fill="#E67E22" filter="url(#festoonGlow)" />
+        <circle class="festoon-light" cx="420" cy="85" r="2" fill="#FFD07B" filter="url(#festoonGlow)" />
+
+        <!-- Right Utility Poles -->
+        <!-- Near Right Pole -->
+        <line x1="1040" y1="120" x2="1040" y2="320" stroke="#2B1D12" stroke-width="4.5" />
+        <line x1="1015" y1="135" x2="1065" y2="135" stroke="#3D2B1C" stroke-width="2.5" />
+        <!-- Mid Right Pole -->
+        <line x1="865" y1="85" x2="865" y2="240" stroke="#2B1D12" stroke-width="3" />
+        <line x1="848" y1="95" x2="882" y2="95" stroke="#3D2B1C" stroke-width="1.8" />
+        <!-- Far Right Pole -->
+        <line x1="725" y1="45" x2="725" y2="120" stroke="#2B1D12" stroke-width="1.8" />
+
+        <!-- Right Sagging Festoon Wires & Glowing Bulbs -->
+        <path d="M1040 135 Q 952 160 865 95" stroke="rgba(212,175,55,0.4)" stroke-width="1" fill="none" />
+        <path d="M865 95 Q 795 98 725 45" stroke="rgba(212,175,55,0.3)" stroke-width="0.8" fill="none" />
+        <!-- Right Glowing Warm Festoon Bulbs -->
+        <circle class="festoon-light" cx="1005" cy="147" r="3" fill="#FFF3D1" filter="url(#festoonGlow)" />
+        <circle class="festoon-light" cx="960" cy="154" r="3.2" fill="#FFB84D" filter="url(#festoonGlow)" />
+        <circle class="festoon-light" cx="912" cy="140" r="2.8" fill="#FFF3D1" filter="url(#festoonGlow)" />
+        <circle class="festoon-light" cx="830" cy="98" r="2.2" fill="#E67E22" filter="url(#festoonGlow)" />
+        <circle class="festoon-light" cx="780" cy="85" r="2" fill="#FFD07B" filter="url(#festoonGlow)" />
+
+        <!-- Railway Signal Lantern (Right Near Ground) -->
+        <line x1="970" y1="260" x2="970" y2="305" stroke="#1D2A47" stroke-width="2.5" />
+        <circle cx="970" cy="258" r="5" fill="#E67E22" filter="url(#festoonGlow)" />
+        <circle cx="970" cy="258" r="2" fill="#FFFFFF" />
+      </svg>
+      </div>
+
+
+      <div class="intro-container">
+        <!-- Glowing Traditional Filipino Parol -->
+        <div class="intro-parol-wrapper">
+          <div class="parol-stage illuminated" aria-label="Traditional Filipino Parol">
+            <div class="parol-rays" aria-hidden="true"></div>
+
+            <div class="parol-floating-wrapper">
+              <svg class="parol-svg" viewBox="0 0 300 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Traditional Philippine Parol">
+                <defs>
+                  <filter id="flameGlow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="7" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+
+                  <linearGradient id="goldBamboo" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFF5D1" />
+                    <stop offset="50%" stop-color="#D4AF37" />
+                    <stop offset="100%" stop-color="#8C6D18" />
+                  </linearGradient>
+
+                  <radialGradient id="capizRosette" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#FFFDF7" />
+                    <stop offset="45%" stop-color="#F6E7B5" />
+                    <stop offset="85%" stop-color="#D4AF37" />
+                    <stop offset="100%" stop-color="#54101D" />
+                  </radialGradient>
+
+                  <linearGradient id="capizFacetLight" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFFDF7" />
+                    <stop offset="50%" stop-color="#EED789" />
+                    <stop offset="100%" stop-color="#C79828" />
+                  </linearGradient>
+
+                  <linearGradient id="capizFacetWarm" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#E2C45E" />
+                    <stop offset="60%" stop-color="#B89327" />
+                    <stop offset="100%" stop-color="#54101D" />
+                  </linearGradient>
+
+                  <linearGradient id="burgundyFacet" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#3E0B14" />
+                    <stop offset="60%" stop-color="#6E1828" />
+                    <stop offset="100%" stop-color="#8C2235" />
+                  </linearGradient>
+
+                  <radialGradient id="innerHeart" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#FFFFFF" />
+                    <stop offset="30%" stop-color="#FFF3D1" />
+                    <stop offset="65%" stop-color="#FFB84D" />
+                    <stop offset="90%" stop-color="#E67E22" />
+                    <stop offset="100%" stop-color="rgba(212, 175, 55, 0)" />
+                  </radialGradient>
+                </defs>
+
+                <circle cx="150" cy="140" r="68" class="parol-framework" stroke="url(#goldBamboo)" stroke-width="2" stroke-dasharray="4 2" />
+                <circle cx="150" cy="140" r="74" stroke="rgba(212, 175, 55, 0.35)" stroke-width="1" />
+
+                <polygon class="parol-facet" points="150,40 150,140 173.5,107.6" fill="url(#capizFacetLight)" />
+                <polygon class="parol-facet" points="150,40 150,140 126.5,107.6" fill="url(#capizFacetWarm)" />
+                <polygon class="parol-facet" points="245.1,109.1 150,140 173.5,107.6" fill="url(#capizFacetWarm)" />
+                <polygon class="parol-facet" points="245.1,109.1 150,140 188.0,152.4" fill="url(#capizFacetLight)" />
+                <polygon class="parol-facet" points="208.8,220.9 150,140 188.0,152.4" fill="url(#capizFacetLight)" />
+                <polygon class="parol-facet" points="208.8,220.9 150,140 150,180" fill="url(#burgundyFacet)" />
+                <polygon class="parol-facet" points="91.2,220.9 150,140 150,180" fill="url(#burgundyFacet)" />
+                <polygon class="parol-facet" points="91.2,220.9 150,140 112.0,152.4" fill="url(#capizFacetLight)" />
+                <polygon class="parol-facet" points="54.9,109.1 150,140 112.0,152.4" fill="url(#capizFacetLight)" />
+                <polygon class="parol-facet" points="54.9,109.1 150,140 126.5,107.6" fill="url(#capizFacetWarm)" />
+
+                <polygon points="150,40 173.5,107.6 245.1,109.1 188.0,152.4 208.8,220.9 150,180 91.2,220.9 112.0,152.4 54.9,109.1 126.5,107.6" class="parol-framework" />
+                
+                <line x1="150" y1="140" x2="150" y2="40" class="parol-framework" stroke-width="1.5" />
+                <line x1="150" y1="140" x2="245.1" y2="109.1" class="parol-framework" stroke-width="1.5" />
+                <line x1="150" y1="140" x2="208.8" y2="220.9" class="parol-framework" stroke-width="1.5" />
+                <line x1="150" y1="140" x2="91.2" y2="220.9" class="parol-framework" stroke-width="1.5" />
+                <line x1="150" y1="140" x2="54.9" y2="109.1" class="parol-framework" stroke-width="1.5" />
+
+                <circle cx="150" cy="140" r="28" fill="url(#capizRosette)" stroke="url(#goldBamboo)" stroke-width="2" />
+                <path d="M150 118 L153 134 L169 131 L156 140 L169 149 L153 146 L150 162 L147 146 L131 149 L144 140 L131 131 L147 134 Z" fill="url(#goldBamboo)" opacity="0.85" />
+                <circle class="parol-center-flame" cx="150" cy="140" r="18" fill="url(#innerHeart)" filter="url(#flameGlow)" />
+
+                <g class="parol-tail-left">
+                  <line x1="91.2" y1="220.9" x2="84" y2="340" stroke="url(#goldBamboo)" stroke-width="1.5" />
+                  <circle cx="89" cy="255" r="9" fill="url(#capizFacetLight)" stroke="url(#goldBamboo)" stroke-width="1" />
+                  <circle cx="86.5" cy="295" r="8" fill="url(#capizFacetWarm)" stroke="url(#goldBamboo)" stroke-width="1" />
+                  <polygon points="84,335 78,368 90,368" fill="url(#goldBamboo)" opacity="0.9" />
+                  <circle cx="84" cy="336" r="4" fill="#E67E22" />
+                </g>
+
+                <g class="parol-tail-right">
+                  <line x1="208.8" y1="220.9" x2="216" y2="340" stroke="url(#goldBamboo)" stroke-width="1.5" />
+                  <circle cx="211" cy="255" r="9" fill="url(#capizFacetLight)" stroke="url(#goldBamboo)" stroke-width="1" />
+                  <circle cx="213.5" cy="295" r="8" fill="url(#capizFacetWarm)" stroke="url(#goldBamboo)" stroke-width="1" />
+                  <polygon points="216,335 210,368 222,368" fill="url(#goldBamboo)" opacity="0.9" />
+                  <circle cx="216" cy="336" r="4" fill="#E67E22" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Narrative Header -->
+        <div class="intro-header-copy">
+          <p class="intro-pretitle">Batang Riles Christmas Party</p>
+          <h1 class="intro-main-title text-gold-gradient">&ldquo;Every Light Has a Story.&rdquo;</h1>
+          <p class="intro-story-lead">
+            For three years along the tracks, we have shared memories, kindness, and hope. This Christmas, let us keep that light shining.
+          </p>
+        </div>
+
+        <div class="intro-action-group">
+          <button type="button" class="btn-enter-story" data-goto-chapter="1">
+            <span>Enter Story</span>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         CHAPTER 1: YEAR 1 (Where Kindness Began)
+         ---------------------------------------------------------------------- -->
+    <section id="chapter-year1" class="story-chapter" aria-label="Chapter 1: Year 1">
+      <div class="memory-album-spread">
+
+        <!-- Left Page: The Story Journal -->
+        <div class="album-page album-page-narrative">
+          <div class="page-station-header">
+            <div class="story-date-badge">
+              <span class="badge-dot"></span>
+              <span class="badge-text">Year 1 &bull; December 2023</span>
+            </div>
+          </div>
+
+          <h2 class="album-story-title">How simple donations created Christmas magic.</h2>
+          
+          <div class="album-story-text">
+            <p class="album-story-body">
+              It all started along the railroad tracks with small gifts from kind-hearted strangers and friends. With whatever help came in, we bought warm meals, small toys, and holiday treats so the children living right beside the rails could have their very own Christmas celebration.
+            </p>
+            <p class="album-story-body">
+              What could have been an ordinary day turned into an afternoon filled with parlor games, shared laughter, and warmth. Seeing their faces light up proved that even the humblest kindness can illuminate an entire community.
+            </p>
+          </div>
+
+          <blockquote class="album-quote">
+            <p>&ldquo;Seeing their eyes light up beside the rails proved that even the humblest kindness can illuminate an entire community.&rdquo;</p>
+          </blockquote>
+
+          <div class="album-page-nav">
+            <button type="button" class="btn-album-prev" data-goto-chapter="0">&larr; Intro</button>
+            <button type="button" class="btn-album-next" data-goto-chapter="2">Turn Page: Year 2 &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Central Album Spine Binding -->
+        <div class="album-spine-divider" aria-hidden="true"></div>
+
+        <!-- Right Page: Archival Keepsake Photo -->
+        <div class="album-page album-page-media">
+          <div class="archival-photo-mount" id="y1-mount" role="button" aria-label="Click to enlarge photo">
+            <div class="photo-tape-corner top-left" aria-hidden="true"></div>
+            <div class="photo-tape-corner top-right" aria-hidden="true"></div>
+            <div class="photo-frame-inner">
+              <img id="y1-hero-img" src="assets/y1/493287965_9624732004231283_4549465918225996649_n.jpg" alt="Year 1 gathering along Batang Riles">
+              <video id="y1-campaign-video" class="year-campaign-video" controls muted loop playsinline preload="metadata" style="display: none;"></video>
+            </div>
+            <p id="y1-photo-caption" class="photo-mount-caption">Our first gathering along the Batang Riles.</p>
+          </div>
+
+          <div class="album-photo-controls">
+            <span id="y1-indicator-text" class="album-counter-text">Memory 1 of 13</span>
+            <div class="album-arrow-btns">
+              <button type="button" id="y1-btn-prev" class="btn-photo-flip">&larr; Prev</button>
+              <button type="button" id="y1-btn-next" class="btn-photo-flip">Next &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Direct Thumbnail Dots -->
+          <div id="y1-dots" class="album-thumbnail-dots"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         CHAPTER 2: YEAR 2 (Kindness Multiplied)
+         ---------------------------------------------------------------------- -->
+    <section id="chapter-year2" class="story-chapter" aria-label="Chapter 2: Year 2">
+      <div class="memory-album-spread">
+
+        <!-- Left Page: The Story Journal -->
+        <div class="album-page album-page-narrative">
+          <div class="page-station-header">
+            <div class="story-date-badge">
+              <span class="badge-dot"></span>
+              <span class="badge-text">Year 2 &bull; December 2024</span>
+            </div>
+          </div>
+
+          <h2 class="album-story-title">More hearts, more laughter along the rails.</h2>
+          
+          <div class="album-story-text">
+            <p class="album-story-body">
+              Because people saw the joy from our first party, more donations poured in. What began as a humble meal grew into a true Christmas party—complete with gift packages, fun parlor games, and Noche Buena groceries for the families living along the tracks.
+            </p>
+            <p class="album-story-body">
+              Volunteers gathered early along the tracks, wrapping gifts and setting up holiday surprises. The community united, proving that when kindness takes root, it multiplies year after year.
+            </p>
+          </div>
+
+          <blockquote class="album-quote">
+            <p>&ldquo;Every single donation turned directly into children's laughter right beside the tracks.&rdquo;</p>
+          </blockquote>
+
+          <div class="album-page-nav">
+            <button type="button" class="btn-album-prev" data-goto-chapter="1">&larr; Year 1</button>
+            <button type="button" class="btn-album-next" data-goto-chapter="3">Turn Page: Year 3 &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Central Album Spine Binding -->
+        <div class="album-spine-divider" aria-hidden="true"></div>
+
+        <!-- Right Page: Archival Keepsake Media (Unified Video & Photo Memories) -->
+        <div class="album-page album-page-media">
+          <div class="archival-photo-mount" id="y2-mount" role="button" aria-label="Click to enlarge photo">
+            <div class="photo-tape-corner top-left" aria-hidden="true"></div>
+            <div class="photo-tape-corner top-right" aria-hidden="true"></div>
+            <div class="photo-frame-inner">
+              <!-- Live Video Slide (Memory 1) -->
+              <video id="y2-campaign-video" muted loop playsinline controls preload="metadata">
+                <source src="assets/y2/AQO4l5d9cltypX3lUbg4ANPOamBt1sD4AziFFb2eyshOaqZaDnakhgv9P_IVybO64hI0B803xjJjA-Uq58xXal8.mp4" type="video/mp4">
+              </video>
+              
+              <!-- Subtle Sound Toggle overlay pill on video -->
+              <button type="button" id="btn-video-sound" class="video-sound-pill" aria-label="Toggle video sound">
+                <span id="video-sound-text">Sound Off</span>
+              </button>
+
+              <!-- Photo Slides (Memories 2 to 5) -->
+              <img id="y2-hero-img" src="assets/y2/513997002_23901728916105020_1539537465338944568_n.jpg" alt="Year 2 celebration" style="display: none;">
+            </div>
+            <p id="y2-photo-caption" class="photo-mount-caption">Live Moments: Year 2 Celebration Along the Tracks</p>
+          </div>
+
+          <!-- Unified Controls: Exactly like Year 1 and Year 3 -->
+          <div class="album-photo-controls">
+            <span id="y2-indicator-text" class="album-counter-text">Memory 1 of 11</span>
+            <div class="album-arrow-btns">
+              <button type="button" id="y2-btn-prev" class="btn-photo-flip">&larr; Prev</button>
+              <button type="button" id="y2-btn-next" class="btn-photo-flip">Next &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Direct Thumbnail Dots -->
+          <div id="y2-dots" class="album-thumbnail-dots"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         CHAPTER 3: YEAR 3 (A Living Tradition)
+         ---------------------------------------------------------------------- -->
+    <section id="chapter-year3" class="story-chapter" aria-label="Chapter 3: Year 3">
+      <div class="memory-album-spread">
+
+        <!-- Left Page: The Story Journal -->
+        <div class="album-page album-page-narrative">
+          <div class="page-station-header">
+            <div class="story-date-badge">
+              <span class="badge-dot"></span>
+              <span class="badge-text">Year 3 &bull; December 2025</span>
+            </div>
+          </div>
+
+          <h2 class="album-story-title">Three years of making Christmas unforgettable.</h2>
+          
+          <div class="album-story-text">
+            <p class="album-story-body">
+              By our third year, the Batang Riles Christmas party had become a beloved annual tradition. With festive balloons, parlor games, and generous packages, we celebrated together right beside the railroad tracks.
+            </p>
+            <p class="album-story-body">
+              The children we met on day one are growing up right before our eyes. Returning each December is our heartfelt promise: no matter how tough life along the tracks can get, they are loved, remembered, and never forgotten.
+            </p>
+          </div>
+
+          <blockquote class="album-quote">
+            <p>&ldquo;Three years of shared kindness, heartfelt memories, and pure childhood happiness.&rdquo;</p>
+          </blockquote>
+
+          <div class="album-page-nav">
+            <button type="button" class="btn-album-prev" data-goto-chapter="2">&larr; Year 2</button>
+            <button type="button" class="btn-album-next" data-goto-chapter="4">Join Our Cause &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Central Album Spine Binding -->
+        <div class="album-spine-divider" aria-hidden="true"></div>
+
+        <!-- Right Page: Archival Keepsake Photo -->
+        <div class="album-page album-page-media">
+          <div class="archival-photo-mount" id="y3-mount" role="button" aria-label="Click to enlarge photo">
+            <div class="photo-tape-corner top-left" aria-hidden="true"></div>
+            <div class="photo-tape-corner top-right" aria-hidden="true"></div>
+            <div class="photo-frame-inner">
+              <img id="y3-hero-img" src="assets/y3/604937792_25441717665439463_3297288499249756309_n.jpg" alt="Year 3 celebration along Batang Riles">
+              <video id="y3-campaign-video" class="year-campaign-video" controls muted loop playsinline preload="metadata" style="display: none;"></video>
+            </div>
+            <p id="y3-photo-caption" class="photo-mount-caption">Year 3 — Holiday parlor games with the children.</p>
+          </div>
+
+          <div class="album-photo-controls">
+            <span id="y3-indicator-text" class="album-counter-text">Memory 1 of 8</span>
+            <div class="album-arrow-btns">
+              <button type="button" id="y3-btn-prev" class="btn-photo-flip">&larr; Prev</button>
+              <button type="button" id="y3-btn-next" class="btn-photo-flip">Next &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Direct Thumbnail Dots -->
+          <div id="y3-dots" class="album-thumbnail-dots"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         CHAPTER 4: DONATE / FINALE
+         ---------------------------------------------------------------------- -->
+    <section id="chapter-finale" class="story-chapter" aria-label="Chapter 4: Destination">
+      <div class="memory-album-spread finale-spread">
+
+        <!-- Left Page: Call to Action -->
+        <div class="album-page album-page-narrative finale-narrative">
+          <div class="page-station-header">
+            <div class="story-date-badge">
+              <span class="badge-dot"></span>
+              <span class="badge-text">Year 4 &bull; December 2026 Drive</span>
+            </div>
+          </div>
+
+          <h2 class="album-story-title">Be the Reason a Child Smiles This Christmas</h2>
+          
+          <div class="album-story-text">
+            <p class="album-story-body">
+              This coming Christmas, we return to the tracks for our fourth year. 100% of your generous gift directly funds warm holiday meals, toy gift packs, fun parlor games, and Noche Buena grocery bundles for the children and families living along the Batang Riles.
+            </p>
+            <p class="album-story-body">
+              Your kindness brings comfort and warmth to families who look forward to this special day all year long. Join hands with us to keep this beacon of light shining along the tracks.
+            </p>
+          </div>
+
+          <blockquote class="album-quote">
+            <p>&ldquo;No act of kindness is ever too small to light up a dark railway.&rdquo;</p>
+          </blockquote>
+
+          <div class="album-page-nav">
+            <button type="button" class="btn-album-prev" data-goto-chapter="1">&larr; Revisit Year 1</button>
+            <button type="button" class="btn-album-next" data-open-donate>Open GCash Details &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Central Album Spine Binding -->
+        <div class="album-spine-divider" aria-hidden="true"></div>
+
+        <!-- Right Page: Quick GCash Showcase -->
+        <div class="album-page album-page-media finale-media">
+          <div class="finale-gcash-mount">
+            <span class="method-tag gcash">Official GCash Channel</span>
+            
+            <div class="finale-qr-thumb" role="button" data-open-donate aria-label="Click to enlarge GCash QR code">
+              <img src="assets/gcash-qr-code.jpg" alt="GCash QR Code" class="finale-qr-img">
+            </div>
+
+            <div class="finale-gcash-text">
+              <span class="gcash-acc-name">MI*****E L.</span>
+              <span class="gcash-acc-number">0917-276-4606</span>
+            </div>
+
+            <div class="finale-btn-row">
+              <button type="button" class="btn-copy-number" data-copy="09172764606" aria-label="Copy GCash number">
+                Copy Number (0917 276 4606)
+              </button>
+              <a href="assets/gcash-qr-code.jpg" download="Batang-Riles-GCash-QR.jpg" class="btn-save-qr">
+                Save QR Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       DONATION MODAL POPUP
+       ======================================================================== -->
+  <div id="donation-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title-heading">
+    <div class="modal-dialog">
+      
+      <!-- Close Button -->
+      <button id="modal-close-btn" class="modal-close-btn" type="button" aria-label="Close donation details">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Modal Header (compact) -->
+      <header class="modal-header">
+        <p class="modal-subtitle">Batang Riles Christmas Party</p>
+        <h3 id="modal-title-heading" class="modal-title">Share Your Light</h3>
+      </header>
+
+      <!-- GCash Section: horizontal row (QR left, details right) -->
+      <div class="gcash-modal-row">
+        <!-- QR Code -->
+        <div class="gcash-qr-frame" id="gcash-qr-frame" role="button" aria-label="Click to enlarge QR">
+          <img src="assets/gcash-qr-code.jpg" alt="Batang Riles GCash QR Code" class="gcash-qr-img">
+        </div>
+
+        <!-- Account Details -->
+        <div class="gcash-modal-info">
+          <span class="method-tag gcash">GCash</span>
+
+          <div class="gcash-detail-line">
+            <span class="gcash-acc-label">Account</span>
+            <span class="gcash-acc-name">MI*****E L.</span>
+          </div>
+          <div class="gcash-detail-line">
+            <span class="gcash-acc-label">Number</span>
+            <span class="gcash-acc-number">0917-276-4606</span>
+          </div>
+
+          <button type="button" class="btn-copy-number" data-copy="09172764606" aria-label="Copy GCash number">
+            Copy Number
+          </button>
+
+          <a href="assets/gcash-qr-code.jpg" download="Batang-Riles-GCash-QR.jpg" class="btn-save-qr">
+            Save QR
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer note -->
+      <p class="modal-footer-note">Keep your screenshot and message us to confirm your gift. Maraming salamat!</p>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MEMORIES LIGHTBOX OVERLAY
+       ======================================================================== -->
+  <div id="memories-lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <div class="lightbox-inner">
+      <img id="lightbox-img" src="" alt="">
+      <button id="lightbox-close" class="lightbox-close" aria-label="Close photo viewer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Story Controller Script -->
+  <script src="scripts/story-journey.js"></script>
+</body>
+</html>

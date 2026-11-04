@@ -1,0 +1,385 @@
+/* ==========================================================================
+   PHILIPPINE CHRISTMAS DONATION DRIVE - HOMEPAGE & NAVIGATION
+   Campaign: Batang Riles Christmas Party Donation Drive (Year 4)
+   Concept: "Every Light Has a Story"
+   Aesthetic: Simple, Serene, Warm, Pleasing to the Eyes (Zero AI Clutter)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CLEAN, MINIMAL SITE NAVIGATION
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(4, 8, 16, 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+.site-nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Brand Identity Lockup */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-brand-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--color-gold-300);
+  letter-spacing: 0.02em;
+}
+
+/* Navigation Links */
+.nav-menu {
+  display: none;
+  align-items: center;
+  gap: var(--space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 860px) {
+  .nav-menu {
+    display: flex;
+  }
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-cream-400);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color var(--duration-fast) ease;
+  position: relative;
+  padding: 0.35rem 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-gold-200);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-gold-400);
+  transition: width var(--duration-normal) var(--ease-cinematic);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Donate Navigation Button */
+.btn-nav-donate {
+  background: linear-gradient(135deg, #F0D577 0%, #D4AF37 50%, #B89327 100%);
+  color: #060A13 !important;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1.4rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+  transition: all var(--duration-normal) var(--ease-cinematic);
+  letter-spacing: 0.02em;
+}
+
+.btn-nav-donate:hover {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5D97E 50%, #C79828 100%);
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Mobile Toggle */
+.nav-mobile-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  color: var(--color-cream-300);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  padding: 0;
+}
+
+@media (min-width: 860px) {
+  .nav-mobile-toggle {
+    display: none;
+  }
+}
+
+.nav-mobile-drawer {
+  display: none;
+  flex-direction: column;
+  background: rgba(8, 13, 26, 0.98);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--space-4) var(--container-gutter) var(--space-6);
+  gap: var(--space-3);
+}
+
+.nav-mobile-drawer.open {
+  display: flex;
+}
+
+.nav-mobile-drawer .nav-link {
+  font-size: 1.05rem;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION (Serene, Elegant, Focused on the Parol)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-16);
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: var(--space-8);
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-8);
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+@media (max-width: 991px) {
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Simple, Human Campaign Label (No generic AI pill box) */
+.hero-label {
+  font-family: var(--font-serif-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--color-gold-300);
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+  letter-spacing: 0.03em;
+}
+
+/* Hero Title */
+.hero-heading {
+  font-family: var(--font-serif-display);
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-tight);
+  margin-top: 0;
+  margin-bottom: var(--space-5);
+  text-wrap: balance;
+}
+
+/* Supporting Narrative */
+.hero-supporting-text {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: var(--leading-relaxed);
+  color: var(--color-cream-300);
+  font-weight: 300;
+  max-width: 540px;
+  margin-top: 0;
+  margin-bottom: var(--space-8);
+}
+
+/* Hero Action Buttons */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+  .hero-actions {
+    justify-content: center;
+  }
+}
+
+/* Primary Button: Radiant Gold Pill (Noticeable & Tasteful) */
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FFF0B8 0%, #E5C158 35%, #D4AF37 70%, #B89327 100%);
+  color: #060A13;
+  border: 1px solid rgba(255, 248, 220, 0.75);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-decoration: none;
+  padding: 0.8rem 2.2rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.5), 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: all var(--duration-normal) var(--ease-cinematic);
+}
+
+.btn-hero-primary:hover {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5D97E 35%, #E2C45E 70%, #C79828 100%);
+  color: #040810;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 38px rgba(212, 175, 55, 0.7), 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* Secondary Button: Velvet Burgundy */
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(45, 7, 14, 0.65);
+  color: var(--color-gold-200);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-cinematic);
+}
+
+.btn-hero-secondary:hover {
+  background: rgba(84, 16, 29, 0.85);
+  border-color: var(--color-gold-300);
+  color: #FFFDF7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(110, 24, 40, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   3. HERO VISUAL COMPOSITION:
+   Exact Same Glowing Parol as Intro (Clean, Serene & Floating Purely)
+   -------------------------------------------------------------------------- */
+.hero-visual-stage {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  min-height: 420px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hero Parol Stage: Exact same Parol with full illumination & floating physics */
+.hero-visual-stage .parol-stage {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 0;
+  width: clamp(250px, 34vw, 330px);
+  height: clamp(300px, 40vw, 400px);
+}
+
+.hero-visual-stage .parol-rays {
+  opacity: 0.9;
+  transform: scale(1);
+}
+
+.hero-visual-stage .parol-floating-wrapper {
+  opacity: 1;
+  transform: none;
+  animation: parolBreezeFloat 5.6s ease-in-out infinite alternate;
+}
+
+.hero-visual-stage .parol-svg {
+  filter: drop-shadow(0 0 45px rgba(212, 175, 55, 0.75))
+          drop-shadow(0 0 18px rgba(255, 218, 140, 0.55))
+          drop-shadow(0 15px 35px rgba(0, 0, 0, 0.85));
+}
+
+.hero-visual-stage .parol-facet {
+  opacity: 1 !important;
+}
+
+.hero-visual-stage .parol-center-flame {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  animation: flameBreathing 3.6s ease-in-out infinite alternate;
+}
+
+/* --------------------------------------------------------------------------
+   4. CONTENT SECTIONS (Clean, Simple, Human)
+   -------------------------------------------------------------------------- */
+.content-section {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto var(--space-8);
+}
+
+.section-label {
+  font-family: var(--font-serif-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--color-gold-300);
+  margin-bottom: var(--space-2);
+}
+
+.section-heading {
+  font-family: var(--font-serif-display);
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+}

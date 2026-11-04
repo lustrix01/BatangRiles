@@ -1,0 +1,107 @@
+/* ==========================================================================
+   PHILIPPINE CHRISTMAS DONATION DRIVE - MASTER DESIGN SYSTEM
+   "Every Light Has a Story"
+   ========================================================================== */
+
+@import url("./variables.css");
+@import url("./typography.css");
+@import url("./components.css");
+@import url("./animations.css");
+@import url("./memories.css");
+@import url("./story-journey.css");
+
+/* --------------------------------------------------------------------------
+   1. GLOBAL RESETS & FOUNDATION
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--color-navy-950);
+  color-scheme: dark;
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  height: 100dvh;
+  background-color: var(--color-navy-950);
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   2. SUBTLE FILM GRAIN & VINTAGE NOSTALGIA OVERLAY
+   Pure SVG data URI (zero external requests, 100% self-contained, lightweight)
+   -------------------------------------------------------------------------- */
+.film-grain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.038;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Cinematic Edge Vignette */
+.cinematic-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 998;
+  background: radial-gradient(circle at 50% 50%, transparent 60%, rgba(4, 8, 16, 0.75) 100%);
+}
+
+/* --------------------------------------------------------------------------
+   3. CUSTOM SCROLLBAR (Warm Gold & Midnight Velvet)
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-navy-950);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.28);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-navy-950);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.55);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.28) var(--color-navy-950);
+}
+
+/* --------------------------------------------------------------------------
+   4. FOCUS ACCESSIBILITY
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--color-gold-400);
+  outline-offset: 3px;
+}
+
+/* Selection Color (Velvet Burgundy highlight with gold text) */
+::selection {
+  background-color: var(--color-burgundy-800);
+  color: var(--color-gold-200);
+}
+

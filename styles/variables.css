@@ -1,0 +1,169 @@
+/* ==========================================================================
+   PHILIPPINE CHRISTMAS DONATION DRIVE - GLOBAL DESIGN TOKENS
+   Concept: "Every Light Has a Story" (Bawat Ilaw ay May Kwento)
+   Aesthetic: Nostalgic, Cinematic Filipino Christmas (Parol, Warmth, Heritage)
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------------
+     1. COLOR PALETTE
+     ------------------------------------------------------------------------ */
+
+  /* Midnight Navy (Gabi ng Pasko - Deep cinematic night sky) */
+  --color-navy-950: #040810;
+  --color-navy-900: #080D1A;
+  --color-navy-850: #0E1626;
+  --color-navy-800: #141F36;
+  --color-navy-700: #1D2A47;
+  --color-navy-600: #2A3B60;
+  --color-navy-500: #3E527F;
+
+  /* Deep Burgundy (Pamaskong Tradisyon - Rich velvet, poinsettia, vintage wine) */
+  --color-burgundy-950: #1A0407;
+  --color-burgundy-900: #2D070E;
+  --color-burgundy-850: #3E0B14;
+  --color-burgundy-800: #54101D;
+  --color-burgundy-700: #6E1828;
+  --color-burgundy-600: #8C2235;
+  --color-burgundy-500: #A83248;
+
+  /* Warm Gold (Ilaw ng Parol - Heritage capiz luster, candlelight radiance) */
+  --color-gold-900: #543E0C;
+  --color-gold-800: #7D5D14;
+  --color-gold-700: #A67D1E;
+  --color-gold-600: #C79828;
+  --color-gold-500: #D4AF37; /* Primary Gold */
+  --color-gold-400: #E2C45E;
+  --color-gold-300: #EED789;
+  --color-gold-200: #F6E7B5;
+  --color-gold-100: #FAF2DA;
+
+  /* Muted Cream (Papel de Hapon & Capiz - Gentle parchment warmth) */
+  --color-cream-950: #1F1C18;
+  --color-cream-900: #3D372E;
+  --color-cream-800: #6B6253;
+  --color-cream-700: #9C8F7C;
+  --color-cream-600: #C4B7A4;
+  --color-cream-500: #DFD5C4;
+  --color-cream-400: #EBE3D5;
+  --color-cream-300: #F3ECE0;
+  --color-cream-200: #F8F3EA;
+  --color-cream-100: #FCF9F3; /* Primary Cream */
+
+  /* Amber & Candlelight Embers (Init ng Pag-asa - Warm fire, star glow) */
+  --color-amber-500: #E67E22;
+  --color-amber-400: #F39C12;
+  --color-amber-300: #F8B739;
+  --color-amber-200: #FFD07B;
+
+  /* Semantic Theme Aliases */
+  --bg-primary: var(--color-navy-950);
+  --bg-secondary: var(--color-navy-900);
+  --bg-surface: var(--color-navy-850);
+  --bg-surface-elevated: #111A2D;
+  --bg-accent-burgundy: var(--color-burgundy-900);
+  
+  --text-primary: var(--color-cream-100);
+  --text-secondary: var(--color-cream-400);
+  --text-muted: var(--color-cream-600);
+  --text-gold: var(--color-gold-400);
+
+  --border-subtle: rgba(212, 175, 55, 0.14);
+  --border-medium: rgba(212, 175, 55, 0.28);
+  --border-prominent: rgba(212, 175, 55, 0.55);
+  --border-burgundy: rgba(140, 34, 53, 0.35);
+
+  /* ------------------------------------------------------------------------
+     2. PAROL GLOW & ELEVATION SHADOWS
+     ------------------------------------------------------------------------ */
+  --glow-parol-soft: 0 0 24px -4px rgba(212, 175, 55, 0.25);
+  --glow-parol-medium: 0 0 45px -5px rgba(212, 175, 55, 0.4);
+  --glow-parol-radiant: 0 0 70px 0px rgba(212, 175, 55, 0.55), 0 0 15px 2px rgba(255, 208, 123, 0.4);
+  --glow-burgundy: 0 10px 30px -5px rgba(110, 24, 40, 0.45);
+  --shadow-cinematic: 0 16px 36px -10px rgba(0, 0, 0, 0.75), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+
+  /* ------------------------------------------------------------------------
+     3. TYPOGRAPHY SYSTEM
+     ------------------------------------------------------------------------ */
+  --font-serif-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-serif-heading: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Modular Scale (1.250 Major Third) */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.563rem;  /* 25px */
+  --text-3xl: 1.953rem;  /* 31.25px */
+  --text-4xl: 2.441rem;  /* 39px */
+  --text-5xl: 3.052rem;  /* 48.8px */
+  --text-6xl: 3.815rem;  /* 61px */
+  --text-7xl: 4.768rem;  /* 76.3px */
+
+  /* Leading */
+  --leading-tight: 1.15;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* Tracking */
+  --tracking-tighter: -0.04em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.12em;
+  --tracking-widest: 0.22em;
+
+  /* ------------------------------------------------------------------------
+     4. SPACING SCALE
+     ------------------------------------------------------------------------ */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* ------------------------------------------------------------------------
+     5. CONTAINERS & LAYOUT
+     ------------------------------------------------------------------------ */
+  --container-max-sm: 640px;
+  --container-max-md: 768px;
+  --container-max-lg: 1024px;
+  --container-max-xl: 1240px;
+  --container-max-wide: 1440px;
+  --container-gutter: clamp(1rem, 4vw, 2.5rem);
+
+  /* ------------------------------------------------------------------------
+     6. RADII & BORDERS
+     ------------------------------------------------------------------------ */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* ------------------------------------------------------------------------
+     7. CINEMATIC TIMING & EASING
+     ------------------------------------------------------------------------ */
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-expo-out: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-glow: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --duration-fast: 180ms;
+  --duration-normal: 320ms;
+  --duration-slow: 540ms;
+  --duration-cinematic: 950ms;
+  --duration-ambient: 4200ms;
+}
+

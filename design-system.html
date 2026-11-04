@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System &amp; Global Tokens &mdash; Every Light Has a Story</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    /* Design System Showcase Layout Rules */
+    .ds-section {
+      padding: var(--space-16) 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .ds-swatch {
+      height: 90px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--space-3);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .ds-swatch span {
+      display: block;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cinematic Film Grain & Vignette Overlays -->
+  <div class="film-grain-overlay" aria-hidden="true"></div>
+  <div class="cinematic-vignette" aria-hidden="true"></div>
+
+  <main class="container" style="padding-top: var(--space-16); padding-bottom: var(--space-24);">
+    
+    <!-- System Header -->
+    <header style="margin-bottom: var(--space-12);">
+      <div class="eyebrow-parol anim-parol-pulse">Bawat Ilaw ay May Kwento</div>
+      <h1 class="display-1 text-gold-gradient" style="margin-top: var(--space-4);">
+        Design System: Every Light Has a Story
+      </h1>
+      <p class="lead" style="max-width: 720px; margin-top: var(--space-4);">
+        A nostalgic, cinematic Filipino Christmas aesthetic inspired by traditional capiz parols, midnight simbang gabi skies, velvet burgundy heritage, and warm candlelight generosity.
+      </p>
+    </header>
+
+    <!-- 1. Color Palette Swatches -->
+    <section class="ds-section">
+      <span class="eyebrow">Token System 01</span>
+      <h2 class="h2 text-gold">Color Palette</h2>
+      <p class="body-sm">Deep burgundy, midnight navy, warm capiz gold, and muted parchment cream.</p>
+
+      <h3 class="h4" style="margin-top: var(--space-8); color: var(--color-gold-300);">Midnight Navy (Gabi ng Pasko)</h3>
+      <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-4);">
+        <div class="ds-swatch" style="background: var(--color-navy-950); color: var(--color-cream-100);">
+          <span>Navy 950</span>
+          <code>#040810</code>
+        </div>
+        <div class="ds-swatch" style="background: var(--color-navy-900); color: var(--color-cream-100);">
+          <span>Navy 900</span>
+          <code>#080D1A</code>
+        </div>
+        <div class="ds-swatch" style="background: var(--color-navy-850); color: var(--color-cream-100);">
+          <span>Navy 850</span>
+          <code>#0E1626</code>
+        </div>
+        <div class="ds-swatch" style="background: var(--color-navy-800); color: var(--color-cream-100);">
+          <span>Navy 800</span>
+          <code>#141F36</code>
+        </div>
+      </div>
+
+      <h3 class="h4" style="margin-top: var(--space-8); color: var(--color-gold-300);">Deep Burgundy (Pamaskong Tradisyon)</h3>
+      <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-4);">
+        <div class="ds-swatch" style="background: var(--color-burgundy-950); color: var(--color-cream-100);">
+          <span>Burgundy 950</span>
+          <code>#1A0407</code>
+        </div>
+        <div class="ds-swatch" style="background: var(--color-burgundy-900); color: var(--color-cream-100);">
+          <span>Burgundy 900</span>
+          <code>#2D070E</code>
+        </div>
+        <div class="ds-swatch" style="background: var(--color-burgundy-800); color: var(--color-cream-100);">
+          <span>Burgundy 800</span>
+          <code>#54101D</code>
+        </div>
+        <div class="ds-swatch" style="background: var(--color-burgundy-600); color: var(--color-cream-100);">
+          <span>Burgundy 600</span>
+          <code>#8C2235</code>
+        </div>
+      </div>
+
+      <h3 class="h4" style="margin-top: var(--space-8); color: var(--color-gold-300);">Warm Gold (Ilaw ng Parol)</h3>
+      <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-4);">
+        <div class="ds-swatch" style="background: var(--color-gold-700); color: #fff;">
+          <span>Gold 700</span>
+          <code>#A67D1E</code>
+        </div>
+        <div class="ds-swatch" style="background: var(--color-gold-500); color: #040810;">
+          <span>Gold 500 (Primary)</span>
+          <code>#D4AF37</code>
+        </div>
+        <div class="ds-swatch" style="background: var(--color-gold-400); color: #040810;">
+          <span>Gold 400</span>
+          <code>#E2C45E</code>
+        </div>
+        <div class="ds-swatch" style="background: var(--color-gold-200); color: #040810;">
+          <span>Gold 200</span>
+          <code>#F6E7B5</code>
+        </div>
+      </div>
+
+      <h3 class="h4" style="margin-top: var(--space-8); color: var(--color-gold-300);">Muted Cream (Papel de Hapon)</h3>
+      <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-4);">
+        <div class="ds-swatch" style="background: var(--color-cream-100); color: #040810;">
+          <span>Cream 100</span>
+          <code>#FCF9F3</code>
+        </div>
+        <div class="ds-swatch" style="background: var(--color-cream-300); color: #040810;">
+          <span>Cream 300</span>
+          <code>#F3ECE0</code>
+        </div>
+        <div class="ds-swatch" style="background: var(--color-cream-600); color: #040810;">
+          <span>Cream 600</span>
+          <code>#C4B7A4</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Typography Scale -->
+    <section class="ds-section">
+      <span class="eyebrow">Token System 02</span>
+      <h2 class="h2 text-gold">Typography Scale</h2>
+      <p class="body-sm">Cormorant Garamond & Playfair Display for headings; Inter & Manrope for body copy.</p>
+
+      <div style="margin-top: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6);">
+        <div>
+          <span class="text-meta">Display Hero</span>
+          <div class="display-hero">Every Light Has a Story</div>
+        </div>
+        <div>
+          <span class="text-meta">Heading 1</span>
+          <h1 style="margin: 0;">Liwanag sa Gitna ng Dilim</h1>
+        </div>
+        <div>
+          <span class="text-meta">Heading 2</span>
+          <h2 style="margin: 0;">Dalawang Taon ng Pag-asa at Pagmamalasakit</h2>
+        </div>
+        <div>
+          <span class="text-meta">Heading 3</span>
+          <h3 style="margin: 0;">Tradisyong Pamasko ng Sambayanang Pilipino</h3>
+        </div>
+        <div>
+          <span class="text-meta">Cinematic Pull Quote</span>
+          <blockquote class="quote-cinematic">
+            "A lantern does not choose which window to brighten; it simply shines for everyone in need of warmth."
+            <cite class="quote-author">&mdash; Philippine Parol Wisdom</cite>
+          </blockquote>
+        </div>
+        <div>
+          <span class="text-meta">Body Large (Lead)</span>
+          <p class="lead">Through two consecutive holiday seasons, genuine donors and local volunteers have illuminated homes and hearts across our beneficiary communities.</p>
+        </div>
+        <div>
+          <span class="text-meta">Body Regular</span>
+          <p>Preserving authentic grassroots photography and documentary footage without generic stock art, honoring the real stories and faces behind each campaign year.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Button Component Hierarchy -->
+    <section class="ds-section">
+      <span class="eyebrow">Token System 03</span>
+      <h2 class="h2 text-gold">Button Components</h2>
+      <p class="body-sm">High-contrast, accessible, with restrained hover luminescence.</p>
+
+      <div style="margin-top: var(--space-8); display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center;">
+        <button type="button" class="btn btn-primary">
+          Light a Parol (Donate)
+        </button>
+
+        <button type="button" class="btn btn-secondary">
+          View Campaign Archive
+        </button>
+
+        <button type="button" class="btn btn-outline">
+          Our Story
+        </button>
+
+        <button type="button" class="btn btn-ghost">
+          Share the Light &rarr;
+        </button>
+
+        <button type="button" class="btn btn-primary btn-sm">
+          Small Action
+        </button>
+
+        <button type="button" class="btn btn-primary btn-lg">
+          Large Hero Action
+        </button>
+      </div>
+    </section>
+
+    <!-- 4. Parol Card & Surface Components -->
+    <section class="ds-section">
+      <span class="eyebrow">Token System 04</span>
+      <h2 class="h2 text-gold">Parol Surfaces & Containers</h2>
+      <p class="body-sm">Glassmorphic capiz-inspired cards with soft edge lighting and cinematic frames.</p>
+
+      <div class="grid-2" style="margin-top: var(--space-8);">
+        <!-- Parol Card Standard -->
+        <div class="parol-card parol-card-rim">
+          <span class="badge-year badge-year-active">Year 1 & 2 Archives</span>
+          <h3 class="h3" style="margin-top: var(--space-4); color: var(--color-gold-300);">Authentic Outreach Reel</h3>
+          <p class="body-sm" style="margin-top: var(--space-3);">
+            Genuine photo & video records from <code>assets/y1</code> and <code>assets/y2</code>, preserving actual community memories.
+          </p>
+          <div style="margin-top: var(--space-6);">
+            <a href="#" class="btn btn-outline btn-sm">Explore Memories</a>
+          </div>
+        </div>
+
+        <!-- Velvet Burgundy Card -->
+        <div class="parol-card card-burgundy">
+          <span class="badge-year badge-year-reserved">Year 3 Preparation</span>
+          <h3 class="h3" style="margin-top: var(--space-4); color: var(--color-cream-100);">The Next Chapter of Hope</h3>
+          <p class="body-sm" style="margin-top: var(--space-3);">
+            Slots reserved dynamically for upcoming Year 3 documentation without fabricated media or stock fillers.
+          </p>
+          <div style="margin-top: var(--space-6);">
+            <span class="badge-year badge-year-reserved">Coming Christmas 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Restrained Animation Utilities -->
+    <section class="ds-section">
+      <span class="eyebrow">Token System 05</span>
+      <h2 class="h2 text-gold">Cinematic Motion & Lighting Utilities</h2>
+      <p class="body-sm">Restrained, non-cartoonish transitions reflecting gentle lantern light.</p>
+
+      <div class="grid-3" style="margin-top: var(--space-8);">
+        <div class="parol-card" style="text-align: center;">
+          <div class="anim-parol-pulse" style="width: 24px; height: 24px; background: var(--color-gold-400); transform: rotate(45deg); margin: var(--space-4) auto; border-radius: 2px;"></div>
+          <div class="text-meta">.anim-parol-pulse</div>
+          <p class="caption" style="margin-top: var(--space-2);">Gentle breathing glow of a lighted parol</p>
+        </div>
+
+        <div class="parol-card" style="text-align: center;">
+          <div class="anim-candle-flicker" style="width: 14px; height: 24px; background: radial-gradient(circle, #FFF 0%, #FFB84D 60%, #E67E22 100%); border-radius: 50% 50% 30% 30%; margin: var(--space-4) auto;"></div>
+          <div class="text-meta">.anim-candle-flicker</div>
+          <p class="caption" style="margin-top: var(--space-2);">Subtle micro-variation in candlelight</p>
+        </div>
+
+        <div class="parol-card" style="text-align: center;">
+          <div class="hover-glow-gold" style="padding: var(--space-3); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); display: inline-block; color: var(--color-gold-300);">
+            Hover Me
+          </div>
+          <div class="text-meta" style="margin-top: var(--space-3);">.hover-glow-gold</div>
+          <p class="caption" style="margin-top: var(--space-2);">Smooth capiz edge illumination on interaction</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Railroad ("Riles") Design Motifs -->
+    <section class="ds-section">
+      <span class="eyebrow">Token System 06</span>
+      <h2 class="h2 text-gold">Railroad Motifs (Batangas Riles Heritage)</h2>
+      <p class="body-sm">Dual steel rails, wooden cross-ties (sleepers / traviesa), and railroad milepost tags.</p>
+
+      <div style="margin-top: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6);">
+        <div>
+          <span class="text-meta">Railroad Track Divider (.riles-track-divider)</span>
+          <div class="riles-track-divider" style="margin-top: var(--space-4);"></div>
+        </div>
+
+        <div>
+          <span class="text-meta">Milepost &amp; Station Tags (.riles-milepost)</span>
+          <div style="display: flex; gap: var(--space-3); margin-top: var(--space-3); flex-wrap: wrap;">
+            <span class="riles-milepost">Batangas Riles Christmas Party</span>
+            <span class="riles-milepost">Km 01 &bull; Year 1 Archive</span>
+            <span class="riles-milepost">Km 02 &bull; Year 2 Outreach</span>
+            <span class="riles-milepost">Km 03 &bull; Upcoming Year 3</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-meta">Railway Station Signboard (.riles-station-board)</span>
+          <div style="margin-top: var(--space-4);">
+            <div class="riles-station-board">
+              <div class="riles-station-title">Estacion Batangas Riles</div>
+              <div class="riles-station-subtitle">Km 00 &bull; Paskong May Pag-asa &bull; Year 3 Drive</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- System Footer Note -->
+    <footer style="text-align: center; color: var(--color-cream-600); font-size: var(--text-xs); letter-spacing: var(--tracking-normal);">
+      Global design system ready &bull; Framework preserved &bull; Media assets untouched
+    </footer>
+  </main>
+</body>
+</html>
+
